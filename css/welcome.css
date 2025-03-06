@@ -1,0 +1,67 @@
+/* Estilo retro Windows 95 */
+body {
+    font-family: "MS Sans Serif", Tahoma, sans-serif;
+    background: #008080;
+    color: black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.window {
+    background: silver;
+    width: 400px;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    padding: 10px;
+}
+
+.window-header {
+    background: navy;
+    color: white;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.window-content {
+    background: lightgray;
+    padding: 10px;
+    border: 2px inset black;
+}
+
+button {
+    background: silver;
+    border: 2px outset black;
+    font-size: 14px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+button:active {
+    border: 2px inset black;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    display: block;
+    margin: 10px auto;
+}
+
+.center {
+    text-align: center;
+}
+.welcome-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    margin-top: 20px;
+}

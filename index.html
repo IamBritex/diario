@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nada importante</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+    <!-- Tu script de autenticación -->
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <div class="window">
+        <div class="sidebar">
+            <div class="sidebar-banner"></div>
+            <div class="sidebar-header" id="sidebar-header">
+                Home
+            </div>
+            
+            <div class="year-toggle">
+                2024 <span>▼</span>
+            </div>
+            <div class="year-content active">
+                <ul class="month-list">
+                    <li data-page="años/2024/enero.html">Enero</li>
+                    <li data-page="años/2024/febrero.html">Febrero</li>
+                    <li data-page="años/2024/marzo.html">Marzo</li>
+                    <li data-page="años/2024/mayo.html">Mayo</li>
+                    <li data-page="años/2024/junio.html">Junio</li>
+                    <li data-page="años/2024/julio.html">Julio</li>
+                    <li data-page="años/2024/agosto.html">Agosto</li>
+                    <li data-page="años/2024/septiembre.html">Septiembre</li>
+                    <li data-page="años/2024/octubre.html">Octubre</li>
+                    <li data-page="años/2024/noviembre.html">Noviembre</li>
+                </ul>
+            </div>
+
+            <div class="year-toggle">
+                2025 <span>▶</span>
+            </div>
+            <div class="year-content">
+                <ul class="month-list">
+
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-header">
+                <span>Nada Importante</span>
+                <div class="window-controls">
+                    <div class="window-control-btn minimize">_</div>
+                    <div class="window-control-btn maximize">□</div>
+                    <div class="window-control-btn close">X</div>
+                </div>
+            </div>
+            <div class="content-display">
+                <iframe id="content-frame" src="bienvenida.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensaje para móviles -->
+    <div class="mobile-message">
+        <span class="material-icons">phonelink_off</span>
+        <p>¡Ups! Este blog no está disponible en teléfonos. <br>
+         Solo en computadoras, porque aquí no hacemos las cosas a medias, y necesitamos todo el espacio para que se vea impresionante.</p>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

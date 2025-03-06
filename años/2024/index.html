@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog - Windows 95 Style</title>
+    <style>
+        * {
+            font-family: 'MS Sans Serif', Tahoma, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #008080;
+            display: flex;
+            height: 100vh;
+        }
+
+        .window {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 2px solid #808080;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-banner {
+            background-color: #000080;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: repeating-linear-gradient(
+                45deg,
+                #000080,
+                #000080 10px,
+                #0000A0 10px,
+                #0000A0 20px
+            );
+        }
+
+        .sidebar-header {
+            background-color: #c0c0c0;
+            color: #000;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #808080;
+        }
+
+        .year-toggle {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #c0c0c0;
+            border-bottom: 1px solid #808080;
+        }
+
+        .year-toggle:hover {
+            background-color: #a0a0a0;
+        }
+
+        .year-content {
+            display: none;
+            background-color: #ffffff;
+        }
+
+        .year-content.active {
+            display: block;
+        }
+
+        .month-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .month-list li {
+            padding: 5px 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .month-list li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .month-list li.active {
+            background-color: #000080;
+            color: #ffffff;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            background-color: #c0c0c0;
+            border-bottom: 2px solid #808080;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content-display {
+            flex-grow: 1;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .content-display iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .window-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .window-control-btn {
+            width: 16px;
+            height: 14px;
+            margin-left: 2px;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .minimize {
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+        }
+
+        .maximize {
+            border-top-color: #ffffff;
+            border-left-color: #ffffff;
+            border-right-color: #808080;
+            border-bottom-color: #808080;
+        }
+
+        .close {
+            background-color: #c0c0c0;
+            border-top-color: #808080;
+            border-left-color: #808080;
+            border-right-color: #ffffff;
+            border-bottom-color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="sidebar">
+            <div class="sidebar-banner">
+                Mi Blog Retro
+            </div>
+            <div class="sidebar-header">
+                Años y Meses
+            </div>
+            
+            <div class="year-toggle">
+                2024
+                <span>▼</span>
+            </div>
+            <div class="year-content active">
+                <ul class="month-list">
+                    <li data-page="años/2024/enero.html">Enero</li>
+                    <li data-page="años/2024/febrero.html">Febrero</li>
+                    <li data-page="años/2024/marzo.html">Marzo</li>
+
+                </ul>
+            </div>
+
+            <div class="year-toggle">
+                2025
+                <span>▶</span>
+            </div>
+            <div class="year-content">
+                <ul class="month-list">
+                    <li data-page="marzo.html">Marzo</li>
+                    <li data-page="abril.html">Abril</li>
+                    <li data-page="mayo.html">Mayo</li>
+                    <li data-page="junio.html">Junio</li>
+                    <li data-page="julio.html">Julio</li>
+                    <li data-page="agosto.html">Agosto</li>
+                    <li data-page="septiembre.html">Septiembre</li>
+                    <li data-page="octubre.html">Octubre</li>
+                    <li data-page="noviembre.html">Noviembre</li>
+                    <li data-page="diciembre.html">Diciembre</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-header">
+                <span>Blog - Selecciona un mes</span>
+                <div class="window-controls">
+                    <div class="window-control-btn minimize">_</div>
+                    <div class="window-control-btn maximize">□</div>
+                    <div class="window-control-btn close">X</div>
+                </div>
+            </div>
+            <div class="content-display">
+                <iframe id="content-frame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Month list click handler
+        document.querySelectorAll('.month-list li').forEach(li => {
+            li.addEventListener('click', function() {
+                // Remove active class from all items
+                document.querySelectorAll('.month-list li').forEach(item => item.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Load the corresponding page
+                const page = this.getAttribute('data-page');
+                document.getElementById('content-frame').src = page;
+            });
+        });
+
+        // Year toggle handler
+        document.querySelectorAll('.year-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const yearContent = this.nextElementSibling;
+                const icon = this.querySelector('span');
+
+                if (yearContent.classList.contains('active')) {
+                    yearContent.classList.remove('active');
+                    icon.textContent = '▶';
+                } else {
+                    // Close all other year contents
+                    document.querySelectorAll('.year-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.querySelectorAll('.year-toggle span').forEach(span => {
+                        span.textContent = '▶';
+                    });
+
+                    // Open this year's content
+                    yearContent.classList.add('active');
+                    icon.textContent = '▼';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

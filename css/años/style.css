@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.entry {
+    background-color: transparent;
+    border-left: 4px solid #333;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.entry-date {
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.entry-content {
+    white-space: pre-wrap;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.blog-image, .blog-media {
+    max-width: 35%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-bottom: 10px;
+}
+
+.blog-image:hover, .blog-media:hover {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 14px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+.image-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.image-viewer.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.image-viewer img, .image-viewer video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+
+.image-viewer .close-btn, .image-viewer .zoom-in-btn, .image-viewer .zoom-out-btn {
+    position: absolute;
+    top: 10px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.image-viewer .close-btn {
+    right: 20px;
+}
+
+.image-viewer .zoom-in-btn {
+    left: 20px;
+}
+
+.image-viewer .zoom-out-btn {
+    left: 60px;
+}
+
+.image-viewer .prev-btn, .image-viewer .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.image-viewer .prev-btn {
+    left: 20px;
+}
+
+.image-viewer .next-btn {
+    right: 20px;
+}
+
+.comment-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    display: none;
+}
+
+.entry:hover .comment-icon {
+    display: block;
+}
+
+.comment-box {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+    background: white;
+    border: 2px solid #ccc;
+    width: 250px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.entry:hover .comment-box {
+    display: block;
+}
+
+.comment-box input {
+    width: calc(100% - 10px);
+    margin-top: 5px;
+}
+
+.comments {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+/* Estilo para la entrada que contiene los comentarios */
+.entry {
+    position: relative;
+}
+
+/* Estilo para el icono de comentarios */
+.comment-icon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    display: none; /* El icono no se muestra por defecto */
+}
+
+/* Estilo para la ventana de comentarios */
+.comment-box {
+    display: none; /* La caja de comentarios está oculta por defecto */
+    position: absolute;
+    bottom: 40px; /* Un poco más arriba que el icono */
+    right: 10px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+/* Mostrar el icono de comentarios solo cuando se hace hover sobre el icono */
+.entry:hover .comment-icon {
+    display: block;
+}
+/* Estilo para la entrada que contiene los comentarios */
+.entry {
+    position: relative;
+}
+
+/* Estilo para el icono de comentarios */
+.comment-icon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    display: none; /* El icono no se muestra por defecto */
+}
+
+/* Estilo para la ventana de comentarios */
+.comment-box {
+    display: none; /* La caja de comentarios está oculta por defecto */
+    position: absolute;
+    bottom: 40px; /* Un poco más arriba que el icono */
+    right: 10px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+/* Mostrar el icono de comentarios solo cuando se hace hover sobre el entry */
+.entry:hover .comment-icon {
+    display: block;
+}
+
+/* Mantener la caja de texto oculta si el icono no ha sido clickeado */
+.entry .comment-box {
+    display: none;
+}
+/* Estilo para la entrada que contiene los comentarios */
+.entry {
+    position: relative;
+}
+
+/* Estilo para el icono de comentarios */
+.comment-icon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    display: none; /* El icono no se muestra por defecto */
+}
+
+/* Estilo para la ventana de comentarios */
+.comment-box {
+    display: none; /* La caja de comentarios está oculta por defecto */
+    position: absolute;
+    bottom: 40px; /* Un poco más arriba que el icono */
+    right: 10px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+/* Mostrar el icono de comentarios solo cuando se hace hover sobre el entry */
+.entry:hover .comment-icon {
+    display: block;
+}
+/* Estilo para la entrada que contiene los comentarios */
+.entry {
+    position: relative;
+}
+
+/* Estilo para el icono de comentarios */
+.comment-icon {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    display: none; /* El icono no se muestra por defecto */
+}
+
+/* Estilo para la ventana de comentarios (debe estar oculta por defecto) */
+.comment-box {
+    display: none; /* La caja de comentarios está oculta por defecto */
+    position: absolute;
+    bottom: 40px; /* Un poco más arriba que el icono */
+    right: 10px;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+/* Mostrar el icono de comentarios solo cuando se hace hover sobre el entry */
+.entry:hover .comment-icon {
+    display: block;
+}.comment-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+.comment-icon {
+    cursor: pointer;
+    font-size: 24px;
+    vertical-align: middle;
+}
+
+.comment-count {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+.entry {
+    position: relative; /* Permite posicionar el icono y el contador dentro de la entrada */
+}
+
+.comment-icon-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: none; /* Ocultar por defecto */
+    align-items: center;
+    gap: 5px; /* Espacio entre el icono y el contador */
+}
+
+.entry:hover .comment-icon-container {
+    display: flex; /* Mostrar al hacer hover */
+}
+
+.comment-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+.comment-count {
+    font-size: 14px;
+    color: #fff;
+    background-color: #333;
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.comment-box {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+    background: white;
+    border: 2px solid #ccc;
+    width: 250px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
